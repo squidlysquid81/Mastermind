@@ -10,8 +10,20 @@ public class Piece  {
         rand = (int)(Math.random()*COLOR_POOL.length());
         color = COLOR_POOL.charAt(rand);
     }
+    public String rPool()  {
+        return colorPool;
+    }
     public char rColor()  {
         return color;
+    }
+    public void sPool(String iPool)  {
+        bool valid = true;
+        for (int count = 0; count < iPool.length(); count++)  {
+            if (iPool.charAt(count) != 'R' && iPool.charAt(count) != 'O' && iPool.charAt(count) != 'Y' && iPool.charAt(count) != 'G' && iPool.charAt(count) != 'B' && iPool.charAt(count) != 'I' && iPool.charAt(count) != 'V')
+                valid = false;
+        }
+        if (valid)
+            colorPool = iPool;
     }
     public void sColor(char iColor)  {
         if (iColor == 'R' || iColor == 'O' || iColor == 'Y' || iColor == 'G' || iColor == 'B' || iColor == 'I' || iColor == 'V')
@@ -22,7 +34,7 @@ public class Piece  {
         rand = (int)(Math.random()*colorPool.length());
         color = colorPool.charAt(rand);
     }
-    public void updatePool(int response, char color2, char color3)  {
+    public void updatePool(int response)  {
         if (response == 7) //Some colors are correct, and in the right location.
             incProb();
         else if (response == 9) //The guess is correct.
