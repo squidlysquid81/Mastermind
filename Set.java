@@ -83,6 +83,24 @@ public class Set  {
                 }
             }
         }
-        //Still need resp 5, 7, and 9.
+        else if (response == 5)  {
+            String colorSave = new String("");
+            for (int count = 0; count < PIECES; count++)  {
+                colorSave += section[count].rColor();
+            }
+            for (int count = 0; count < colorSave.length(); count++)  {
+                for (int place = 0; place < PIECES; place++)  {
+                    section[place].zeroProb(colorSave.charAt(count));
+                }
+            }
+        }
+        else if (response == 7)  {
+            //
+        }
+        else if (response == 9)  {
+            
+        }
+        else
+            System.out.println("\nPlease use a given response.");
     }
 }
