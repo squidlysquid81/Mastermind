@@ -10,7 +10,20 @@ public class TwoPlayer implements Game  {
         sMaster();
     }
     public void sMaster()  {
-        
+        guesses = 0;
+        int track = 0;
+        String input = new String();
+        char inputChar;
+        Scanner kin = new Scanner
+        System.out.println("Master, please input your hidden set using R, O, Y, G, B, I, and V in the places you'd like to place them.");
+        while (track < Set.rPIECES())  {
+            System.out.print("\nPlace " + (track + 1) + ":  ");
+            input = kin.next();
+            input.toUpperCase();
+            inputChar = input.charAt(0);
+            while (inputChar != 'R' && //FINISH THIS
+            track++;
+        }
     }
     public void sGuess()  {
         
