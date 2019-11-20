@@ -30,7 +30,7 @@ public class TwoPlayer implements Game  {
             Piece output = new Piece();
             output.sPool((String)inputChar);
             output.sColor(inputChar);
-            master.sPiece(output, track);
+            master.sSection(output, track);
             track++;
         }
         System.out.clear();
@@ -60,7 +60,7 @@ public class TwoPlayer implements Game  {
             Piece output = new Piece();
             output.sPool((String)inputChar);
             output.sColor(inputChar);
-            guess.sPiece(output, track);
+            guess.sSection(output, track);
             track++;
         }
         guesses++;
