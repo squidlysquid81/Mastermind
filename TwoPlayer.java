@@ -33,9 +33,33 @@ public class TwoPlayer implements Game  {
             master.sPiece(output, track);
             track++;
         }
+        System.out.clear();
     }
     public void sGuess()  {
-        
+        guesses = 0;
+        int track = 0;
+        String input = new String();
+        char inputChar;
+        Scanner kin = new Scanner
+        System.out.println("Guesser, please input your hidden set using R, O, Y, G, B, I, and V in the places you'd like to place them.");
+        while (track < Set.rPIECES())  {
+            System.out.print("\nPlace " + (track + 1) + ":  ");
+            input = kin.next();
+            input.toUpperCase();
+            inputChar = input.charAt(0);
+            while (inputChar != 'R' && inputChar != 'O' && inputChar != 'Y' && inputChar != 'G' && inputChar != 'B' && inputChar != 'I' && inputChar != 'V')  {
+                System.out.println("Please choose a valid color.");
+                input = kin.next();
+                input.toUpperCase();
+                inputChar = input.charAt(0);
+            }
+            Piece output = new Piece();
+            output.sPool((String)inputChar);
+            output.sColor(inputChar);
+            guess.sPiece(output, track);
+            track++;
+        }
+        System.out.clear();
     }
     public int test()  {
         
