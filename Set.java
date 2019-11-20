@@ -9,6 +9,9 @@ public class Set  {
             section[count] = new Piece();
         }
     }
+    public int rPIECES()  {
+        return PIECES;
+    }
     public Piece rSection(int place)  {
         Piece output = new Piece();
         if (place >= 0 && place < section.length)
