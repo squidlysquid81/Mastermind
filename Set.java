@@ -95,10 +95,14 @@ public class Set  {
             }
         }
         else if (response == 7)  {
-            //
+            for (int count = 0; count < PIECES; count++)  {
+                section[count].incProb();
+            }
         }
         else if (response == 9)  {
-            
+            for (int count = 0; count < PIECES; count++)  {
+                section[count].singProb();
+            }
         }
         else
             System.out.println("\nPlease use a given response.");
