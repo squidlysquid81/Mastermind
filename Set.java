@@ -2,7 +2,7 @@ package mastermind;
 //@author edwardsdw
 public class Set  {
     private static int PIECES = 4 //GAME CAN ONLY HANDLE A MAX OF /6/ WITH ITS CURRENT STATIC POOL!!!!!
-    private Piece[] section;
+    public Piece[] section;
     public Set()  {
         section = new Piece[PIECES];
         for (int count = 0; count < section.length; count++)  {
