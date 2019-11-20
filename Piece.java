@@ -34,16 +34,49 @@ public class Piece  {
         rand = (int)(Math.random()*colorPool.length());
         color = colorPool.charAt(rand);
     }
-    public void updatePool(int response)  {
-        if (response == 7) //Some colors are correct, and in the right location.
-            incProb();
-        else if (response == 9) //The guess is correct.
-            singProb();
-    }
-    private void incProb()  {
+    public void incProb()  {
         colorPool += color;
     }
-    private void singProb()  {
+    public void incProb(char iColor)  {
+        colorPool += iColor;
+    }
+    public void singProb()  {
         colorPool = color;
+    }
+    public void zeroProb()  {
+        for (int count = 0; count < colorPool.length; count++)  {
+            if (colorPool.charAt(count) == color)  {
+                if (count == colorPool.length - 1)
+                    colorPool = colorPool.substring(0, count);
+                else if (count == 0)
+                    colorPool = colorPool.substring(1);
+                else
+                    colorPool = colorPool.substring(0, count) + colorPool.substring(count + 1);
+            }
+        }
+    }
+    public void zeroProb(char iColor)  {
+        for (int count = 0; count < colorPool.length; count++)  {
+            if (colorPool.charAt(count) == iColor)  {
+                if (count == colorPool.length - 1)
+                    colorPool = colorPool.substring(0, count);
+                else if (count == 0)
+                    colorPool = colorPool.substring(1);
+                else
+                    colorPool = colorPool.substring(0, count) + colorPool.substring(count + 1);
+            }
+        }
+    }
+    public void onlyProb(char color1, char color2)  {
+        for (int count = 0; count < colorPool.length; count++)  {
+            if (colorPool.charAt(count) != color && colorPool.charAt(count) != color2 && colorPool.charAt(count) != color3)  {
+                if (count == colorPool.length - 1)
+                    colorPool = colorPool.substring(0, count);
+                else if (count == 0)
+                    colorPool = colorPool.substring(1);
+                else
+                    colorPool = colorPool.substring(0, count) + colorPool.substring(count + 1);
+            }
+        }
     }
 }
