@@ -81,6 +81,8 @@ public class TwoPlayer implements Game  {
             System.out.println("\n> ");
             input = kin.nextInt();
         }
+        System.out.clear();
+        return input;
     }
     public void update(int response)  {
         
