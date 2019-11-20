@@ -67,4 +67,9 @@ public class Piece  {
             }
         }
     }
+    public String toString()  {
+        String output = new String("");
+        output += color;
+        return output;
+    }
 }
