@@ -110,4 +110,13 @@ public class Set  {
         else
             System.out.println("\nPlease use a given response.");
     }
+    public String toString()  {
+        String output = new String("");
+        for (int count = 0; count < PIECES; count++)  {
+            output += section[count].rColor();
+            output += " ";
+        }
+        output = output.substring(0, (output.length() - 1));
+        return output;
+    }
 }
