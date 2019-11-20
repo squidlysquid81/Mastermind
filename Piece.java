@@ -67,16 +67,4 @@ public class Piece  {
             }
         }
     }
-    public void onlyProb(char color1, char color2)  {
-        for (int count = 0; count < colorPool.length; count++)  {
-            if (colorPool.charAt(count) != color && colorPool.charAt(count) != color2 && colorPool.charAt(count) != color3)  {
-                if (count == colorPool.length - 1)
-                    colorPool = colorPool.substring(0, count);
-                else if (count == 0)
-                    colorPool = colorPool.substring(1);
-                else
-                    colorPool = colorPool.substring(0, count) + colorPool.substring(count + 1);
-            }
-        }
-    }
 }
