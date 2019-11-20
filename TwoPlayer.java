@@ -22,8 +22,15 @@ public class TwoPlayer implements Game  {
             input.toUpperCase();
             inputChar = input.charAt(0);
             while (inputChar != 'R' && inputChar != 'O' && inputChar != 'Y' && inputChar != 'G' && inputChar != 'B' && inputChar != 'I' && inputChar != 'V')  {
-                //keep looping until valid
+                System.out.println("Please choose a valid color.");
+                input = kin.next();
+                input.toUpperCase();
+                inputChar = input.charAt(0);
             }
+            Piece output = new Piece();
+            output.sPool((String)inputChar);
+            output.sColor(inputChar);
+            master.sPiece(output, track);
             track++;
         }
     }
