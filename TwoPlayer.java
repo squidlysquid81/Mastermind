@@ -2,8 +2,8 @@ package mastermind;
 import java.util.Scanner;
 //@author edwardsdw
 public class TwoPlayer implements Game  {
-    private Set master;
-    private Set guess;
+    protected Set master;
+    protected Set guess;
     public TwoPlayer()  {
         master = new Set();
         guess = new Set();
