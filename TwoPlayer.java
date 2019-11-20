@@ -21,7 +21,9 @@ public class TwoPlayer implements Game  {
             input = kin.next();
             input.toUpperCase();
             inputChar = input.charAt(0);
-            while (inputChar != 'R' && //FINISH THIS
+            while (inputChar != 'R' && inputChar != 'O' && inputChar != 'Y' && inputChar != 'G' && inputChar != 'B' && inputChar != 'I' && inputChar != 'V')  {
+                //keep looping until valid
+            }
             track++;
         }
     }
