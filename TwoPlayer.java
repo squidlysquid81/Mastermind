@@ -63,6 +63,7 @@ public class TwoPlayer implements Game  {
             guess.sPiece(output, track);
             track++;
         }
+        guesses++;
         System.out.clear();
     }
     public int test()  {
