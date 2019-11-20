@@ -1,16 +1,50 @@
 package mastermind;
 //@author edwardsdw
 public class Set  {
+    private static int PIECES = 4 //GAME CAN ONLY HANDLE A MAX OF /6/ WITH ITS CURRENT STATIC POOL!!!!!
     private Piece[] section;
     public Set()  {
-        section = new Piece[4];
-        for (int count = 0; count < section.size(); count++)  {
+        section = new Piece[PIECES];
+        for (int count = 0; count < section.length; count++)  {
             section[count] = new Piece();
         }
     }
     public Piece rSection(int place)  {
         Piece output = new Piece();
-        if (place >= 0 && 
-            output.sColor();
+        if (place >= 0 && place < section.length)
+            output = section[place];
+        return output;
+    }
+    public void sSection(Piece iSect, int place)  {
+        Piece sect = new Piece();
+        sect.sPool(iSect.rPool());
+        sect.sColor(iSect.rColor());
+        if (place >= 0 && place < section.length)
+            section[place] = sect;
+    }
+    public int test(Set iGuess)  {
+        Set guess = new Set();
+        boolean[] nums = new boolean[PIECES];
+        boolean[] colors = new boolean[PIECES];
+        boolean tNums = false, tColors = false;
+        int response;
+        for (int count = 0; count < PIECES; count++)  {
+            guess.sSection(iGuess[count], count);
+            nums[count] = false;
+            colors[count] = false;
+        }
+        for (int count = 0; count < PIECES; count++)  {
+            if (section[count].rColor() == guess[count].rColor())  {
+                nums[count] = true;
+                colors[count] = true;
+            }
+            else  {
+                for (int place = 0; place < PIECES; place++)  {
+                    if (section[count].rColor() == guess[place].rColor())
+                        colors[count] = true;
+                }
+            }
+        }
+        //Actually test to determine response
     }
 }
