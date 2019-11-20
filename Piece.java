@@ -17,7 +17,7 @@ public class Piece  {
         return color;
     }
     public void sPool(String iPool)  {
-        bool valid = true;
+        boolean valid = true;
         for (int count = 0; count < iPool.length(); count++)  {
             if (iPool.charAt(count) != 'R' && iPool.charAt(count) != 'O' && iPool.charAt(count) != 'Y' && iPool.charAt(count) != 'G' && iPool.charAt(count) != 'B' && iPool.charAt(count) != 'I' && iPool.charAt(count) != 'V')
                 valid = false;
@@ -41,12 +41,13 @@ public class Piece  {
         colorPool += iColor;
     }
     public void singProb()  {
-        colorPool = color;
+        colorPool = "";
+        colorPool += color;
     }
     public void zeroProb()  {
-        for (int count = 0; count < colorPool.length; count++)  {
+        for (int count = 0; count < colorPool.length(); count++)  {
             if (colorPool.charAt(count) == color)  {
-                if (count == colorPool.length - 1)
+                if (count == colorPool.length() - 1)
                     colorPool = colorPool.substring(0, count);
                 else if (count == 0)
                     colorPool = colorPool.substring(1);
@@ -56,9 +57,9 @@ public class Piece  {
         }
     }
     public void zeroProb(char iColor)  {
-        for (int count = 0; count < colorPool.length; count++)  {
+        for (int count = 0; count < colorPool.length(); count++)  {
             if (colorPool.charAt(count) == iColor)  {
-                if (count == colorPool.length - 1)
+                if (count == colorPool.length() - 1)
                     colorPool = colorPool.substring(0, count);
                 else if (count == 0)
                     colorPool = colorPool.substring(1);

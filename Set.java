@@ -1,7 +1,7 @@
 package mastermind;
 //@author edwardsdw
 public class Set  {
-    private static int PIECES = 4 //GAME CAN ONLY HANDLE A MAX OF /6/ WITH ITS CURRENT STATIC POOL!!!!!
+    private static int PIECES = 4; //GAME CAN ONLY HANDLE A MAX OF /6/ WITH ITS CURRENT STATIC POOL!!!!!
     public Piece[] section;
     public Set()  {
         section = new Piece[PIECES];
@@ -32,18 +32,18 @@ public class Set  {
         boolean tNums = true, tColors = true, sNums = false, sColors = false;
         int response;
         for (int count = 0; count < PIECES; count++)  {
-            guess.sSection(iGuess[count], count);
+            guess.sSection(iGuess.section[count], count);
             nums[count] = false;
             colors[count] = false;
         }
         for (int count = 0; count < PIECES; count++)  {
-            if (section[count].rColor() == guess[count].rColor())  {
+            if (section[count].rColor() == guess.section[count].rColor())  {
                 nums[count] = true;
                 colors[count] = true;
             }
             else  {
                 for (int place = 0; place < PIECES; place++)  {
-                    if (section[count].rColor() == guess[place].rColor())
+                    if (section[count].rColor() == guess.section[place].rColor())
                         colors[count] = true;
                 }
             }
