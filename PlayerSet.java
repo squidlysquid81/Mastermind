@@ -12,6 +12,7 @@ public class PlayerSet extends TwoPlayer  {
         for (int count = 0; count < Set.rPIECES(); count++)  {
             guess.section[count].randColor();
         }
+        guesses++;
     }
     public void update(int response)  {
         guess.update(response);
