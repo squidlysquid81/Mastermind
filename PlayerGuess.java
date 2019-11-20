@@ -9,12 +9,13 @@ public class PlayerGuess extends TwoPlayer  {
     }
     public void sMaster()  {
         guesses = 0;
+        Piece access;
         for (int count = 0; count < Set.rPIECES(); count++)  {
-            master[count].randColor();
-            master[count].singProb(master[count].rColor());
+            master.section[count].randColor();
+            master.section[count].singProb(master[count].rColor());
             for (int place = 0; place < Set.rPIECES(); place++)  {
                 if (place != count)
-                    master[place].zeroProb(master[count].rColor());
+                    master.section[place].zeroProb(master.section[count].rColor());
             }
         }
     }
