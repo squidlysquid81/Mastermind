@@ -26,7 +26,7 @@ public class Set  {
         Set guess = new Set();
         boolean[] nums = new boolean[PIECES];
         boolean[] colors = new boolean[PIECES];
-        boolean tNums = false, tColors = false;
+        boolean tNums = true, tColors = true, sNums = false, sColors = false;
         int response;
         for (int count = 0; count < PIECES; count++)  {
             guess.sSection(iGuess[count], count);
@@ -45,6 +45,44 @@ public class Set  {
                 }
             }
         }
-        //Actually test to determine response
+        for (int count = 0; count < PIECES; count++)  {
+            if (nums[count])
+                sNums = true;
+            else
+                tNums = false;
+            if (colors[count])
+                sColors = true;
+            else
+                tColors = false;
+        }
+        if (tNums)
+            response = 9;
+        else if (tColors)
+            response = 5;
+        else if (sNums && sColors)
+            response = 7;
+        else if (sColors)
+            response = 3;
+        else
+            response = 1;
+        return response;
+    }
+    public void update(int response)  {
+        if (response == 1)  {
+            for (int count = 0; count < PIECES; count++)  {
+                for (int place = 0; place < PIECES; place++)  {
+                    section[count].zeroProb(section[place].rColor());
+                }
+            }
+        }
+        else if (response == 3)  {
+            for (int count = 0; count < PIECES; count++)  {
+                for (int place = 0; place < PIECES; place++)  {
+                    if (place != count)
+                        section[count].incProb(section[place].rColor());
+                }
+            }
+        }
+        //Still need resp 5, 7, and 9.
     }
 }
