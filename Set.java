@@ -9,7 +9,7 @@ public class Set  {
             section[count] = new Piece();
         }
     }
-    public int rPIECES()  {
+    public static int rPIECES()  {
         return PIECES;
     }
     public Piece rSection(int place)  {
