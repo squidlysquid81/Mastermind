@@ -6,6 +6,7 @@ import java.util.logging.*;
 //@author edwardsdw
 public class Mastermind {
     public static void main(String[] args) {
+        String breakSolve = new String("");
         Scanner kin = new Scanner(System.in);
         int respSave;
         System.out.println("Game Versions:");
@@ -19,39 +20,44 @@ public class Mastermind {
             System.out.print("\n> ");
             respSave = kin.nextInt();
         }
-        try {
-            Robot pressbot = new Robot();
-            pressbot.keyPress(17); // Holds CTRL key.
-            pressbot.keyPress(76); // Holds L key.
-            pressbot.keyRelease(17); // Releases CTRL key.
-            pressbot.keyRelease(76); // Releases L key.
-        }
-        catch (AWTException ex) {
-            //Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        System.out.println("\nUser, please press Ctrl + L to clear the output window. Then type something (anything, really) and press enter to continue."); //STILL NOT WORKING
+        breakSolve = kin.next();
         if (respSave == 1)  {
             PlayerGuess game = new PlayerGuess();
             respSave = 0;
-            while (respSave != 9)  {
+            while (respSave != 9 && PlayerGuess.guesses <= 20)  {
                 game.sGuess(respSave);
                 respSave = game.test();
             }
+            if (PlayerGuess.guesses <= 20)
+                System.out.println("\nPlayer wins! You guessed the computer's hidden set in " + PlayerGuess.guesses + " guesses!");
+            else
+                System.out.println("\nComputer wins. You failed to guess the computer's hidden set, which was: " + game.master);
         }
         else if (respSave == 2)  {
             PlayerSet game = new PlayerSet();
             respSave = 0;
-            while (respSave != 9)  {
+            while (respSave != 9 && PlayerSet.guesses < 20)  {
                 game.sGuess(respSave);
                 respSave = game.test();
             }
+            if (PlayerSet.guesses <= 20)
+                System.out.println("\nComputer wins. The computer guessed your hidden set in " + PlayerSet.guesses + " guesses.");
+            else
+                System.out.println("\nPlayer wins! The computer failed to guess your hidden set, which was: " + game.master);
         }
         else  {
             TwoPlayer game = new TwoPlayer();
             respSave = 0;
-            while (respSave != 9)  {
+            while (respSave != 9 && TwoPlayer.guesses <= 20)  {
                 game.sGuess(respSave);
                 respSave = game.test();
             }
+            if (TwoPlayer.guesses <= 20)
+                System.out.println("\nGuesser wins! They guessed the Master's hidden set in "  + TwoPlayer.guesses + " guesses!");
+            else
+                System.out.println("\nMaster wins! The guesser failed to guess the Master's hidden set, which was: " + game.master);
         }
+        
     }
 }

@@ -27,7 +27,7 @@ public class TwoPlayer implements Game  {
         String input = new String();
         char inputChar;
         Scanner kin = new Scanner(System.in);
-        System.out.println("Master, please input your hidden set using R, O, Y, G, B, I, and V in the places you'd like to place them.");
+        System.out.println("\nMaster, please input your hidden set using R, O, Y, G, B, I, and V in the places you'd like to place them.");
         while (track < Set.rPIECES())  {
             System.out.print("\nPlace " + (track + 1) + ":  ");
             input = kin.next();
@@ -47,30 +47,23 @@ public class TwoPlayer implements Game  {
             master.sSection(output, track);
             track++;
         }
-        try {
-            Robot pressbot = new Robot();
-            pressbot.keyPress(17); // Holds CTRL key.
-            pressbot.keyPress(76); // Holds L key.
-            pressbot.keyRelease(17); // Releases CTRL key.
-            pressbot.keyRelease(76); // Releases L key.
-        }
-        catch (AWTException ex) {
-            //Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        System.out.println("\nMaster, please press Ctrl + L to clear the output window. Then type something (anything, really) and press enter to continue.");
+        kin.next();
     }
     public void sGuess(int response)  {
         int track = 0;
         String input = new String();
         char inputChar;
         Scanner kin = new Scanner(System.in);
-        if (guesses != 0)  {
-            System.out.println("Your last guess was:");
-            System.out.println("\t" + guess);
-            System.out.println("\nThe Master's hint is '" + responses[response] + "'");
-        }
-        else
-            System.out.println("Guesser, please input your guess using R, O, Y, G, B, I, and V in the places you'd like to place them.");
         while (track < Set.rPIECES())  {
+            if (track == 0)  {
+                if (guesses != 0)  {
+                System.out.println("\nYour last guess was:");
+                System.out.println("\t" + guess);
+                System.out.println("\nThe Master's hint is '" + responses[response] + "'");
+                }
+                System.out.println("\nGuesser, please input your guess using R, O, Y, G, B, I, and V.");
+            }
             System.out.print("\nPlace " + (track + 1) + ":  ");
             input = kin.next();
             input = input.toUpperCase();
@@ -90,21 +83,13 @@ public class TwoPlayer implements Game  {
             track++;
         }
         guesses++;
-        try {
-            Robot pressbot = new Robot();
-            pressbot.keyPress(17); // Holds CTRL key.
-            pressbot.keyPress(76); // Holds L key.
-            pressbot.keyRelease(17); // Releases CTRL key.
-            pressbot.keyRelease(76); // Releases L key.
-        }
-        catch (AWTException ex) {
-            //Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        System.out.println("\nGuesser, please press Ctrl + L to clear the output window. Then type something (anything, really) and press enter to continue.");
+        kin.next();
     }
     public int test()  {
         int input;
         Scanner kin = new Scanner(System.in);
-        System.out.println("Master, this is your opponent's guess:");
+        System.out.println("\nMaster, this is your opponent's guess:");
         System.out.println("\t" + guess);
         System.out.println("\nThis is your hidden set:");
         System.out.println("\t" + master);
@@ -117,16 +102,8 @@ public class TwoPlayer implements Game  {
             System.out.println("\n> ");
             input = kin.nextInt();
         }
-        try {
-            Robot pressbot = new Robot();
-            pressbot.keyPress(17); // Holds CTRL key.
-            pressbot.keyPress(76); // Holds L key.
-            pressbot.keyRelease(17); // Releases CTRL key.
-            pressbot.keyRelease(76); // Releases L key.
-        }
-        catch (AWTException ex) {
-            //Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        System.out.println("\nMaster, please press Ctrl + L to clear the output window. Then type something (anything, really) and press enter to continue.");
+        kin.next();
         return input;
     }
     public void update(int response)  {
